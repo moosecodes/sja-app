@@ -9,8 +9,15 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
 const form = useForm({
-    moose: '',
-    name: '',
+    dob: '',
+    firstName: '',
+    lastName: '',
+    phone: '',
+    address1: '',
+    address2: '',
+    city: '',
+    state: '',
+    zip: '',
     email: '',
     password: '',
     password_confirmation: '',
@@ -33,33 +40,130 @@ const submit = () => {
         </template>
 
         <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="moose" value="Moose" />
-                <TextInput
-                    id="moose"
-                    v-model="form.moose"
-                    type="text"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                    autocomplete="moose"
-                />
-                <InputError class="mt-2" :message="form.errors.name" />
-            </div>
+          <div class="mt-4">
+            <InputLabel for="dob" value="Date of Birth" />
+            <TextInput
+                id="dob"
+                v-model="form.dob"
+                type="text"
+                class="mt-1 block w-full"
+                required
+                autofocus
+                autocomplete="dob"
+            />
+            <InputError class="mt-2" :message="form.errors.dob" />
+          </div>
 
-            <div>
-                <InputLabel for="name" value="Name" />
-                <TextInput
-                    id="name"
-                    v-model="form.name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                    autocomplete="name"
-                />
-                <InputError class="mt-2" :message="form.errors.name" />
-            </div>
+          <div class="mt-4">
+            <InputLabel for="firstName" value="First Name" />
+            <TextInput
+                id="firstName"
+                v-model="form.firstName"
+                type="text"
+                class="mt-1 block w-full"
+                required
+                autofocus
+                autocomplete="firstName"
+            />
+            <InputError class="mt-2" :message="form.errors.firstName" />
+          </div>
+
+          <div class="mt-4">
+            <InputLabel for="lastName" value="Last Name" />
+            <TextInput
+                id="lastName"
+                v-model="form.lastName"
+                type="text"
+                class="mt-1 block w-full"
+                required
+                autofocus
+                autocomplete="lastName"
+            />
+            <InputError class="mt-2" :message="form.errors.lastName" />
+          </div>
+
+          <div class="mt-4">
+            <InputLabel for="phone" value="Phone" />
+            <TextInput
+                id="phone"
+                v-model="form.phone"
+                type="text"
+                class="mt-1 block w-full"
+                required
+                autofocus
+                autocomplete="phone"
+            />
+            <InputError class="mt-2" :message="form.errors.phone" />
+          </div>
+
+          <div class="mt-4">
+            <InputLabel for="address1" value="Address 1" />
+            <TextInput
+                id="address1"
+                v-model="form.address1"
+                type="text"
+                class="mt-1 block w-full"
+                required
+                autofocus
+                autocomplete="address1"
+            />
+            <InputError class="mt-2" :message="form.errors.address1" />
+          </div>
+
+          <div class="mt-4">
+            <InputLabel for="address2" value="Address 2" />
+            <TextInput
+                id="address2"
+                v-model="form.address2"
+                type="text"
+                class="mt-1 block w-full"
+                autofocus
+                autocomplete="address2"
+            />
+            <InputError class="mt-2" :message="form.errors.address2" />
+          </div>
+
+          <div class="mt-4">
+            <InputLabel for="city" value="City" />
+            <TextInput
+                id="city"
+                v-model="form.city"
+                type="text"
+                class="mt-1 block w-full"
+                required
+                autofocus
+                autocomplete="city"
+            />
+            <InputError class="mt-2" :message="form.errors.city" />
+          </div>
+
+          <div class="mt-4">
+            <InputLabel for="state" value="State" />
+            <TextInput
+                id="state"
+                v-model="form.state"
+                type="text"
+                class="mt-1 block w-full"
+                required
+                autofocus
+                autocomplete="state"
+            />
+            <InputError class="mt-2" :message="form.errors.state" />
+          </div>
+
+          <div class="mt-4">
+            <InputLabel for="zip" value="Zip" />
+            <TextInput
+                id="zip"
+                v-model="form.zip"
+                type="text"
+                class="mt-1 block w-full"
+                required
+                autofocus
+                autocomplete="zip"
+            />
+            <InputError class="mt-2" :message="form.errors.zip" />
+          </div>
 
             <div class="mt-4">
                 <InputLabel for="email" value="Email" />

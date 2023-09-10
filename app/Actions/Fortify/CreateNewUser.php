@@ -20,16 +20,30 @@ class CreateNewUser implements CreatesNewUsers
     public function create(array $input): User
     {
         Validator::make($input, [
-            'moose' => ['required', 'string', 'max:255'],
-            'name' => ['required', 'string', 'max:255'],
+            'dob' => ['required', 'string', 'max:255'],
+            'firstName' => ['required', 'string', 'max:255'],
+            'lastName' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string', 'max:255'],
+            'address1' => ['required', 'string', 'max:255'],
+            'address2' => ['string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'state' => ['required', 'string', 'max:255'],
+            'zip' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
         return User::create([
-            'moose' => $input['moose'],
-            'name' => $input['name'],
+            'dob' => $input['dob'],
+            'firstName' => $input['firstName'],
+            'lastName'  => $input['lastName'],
+            'phone' => $input['phone'],
+            'address1'  => $input['address1'],
+            'address2'  => $input['address2'],
+            'city'  => $input['city'],
+            'state' => $input['state'],
+            'zip' => $input['zip'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
         ]);
