@@ -44,4 +44,7 @@ Route::middleware([
   Route::get('/schedule', function () {
     return Inertia::render('Schedule');
   })->name('schedule');
+  Route::get('/billing', function () {
+    return Inertia::render('Billing');
+  })->name('billing');
 });

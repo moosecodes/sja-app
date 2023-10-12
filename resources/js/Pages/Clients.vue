@@ -25,8 +25,12 @@ const removeCredit = (client_id) => {
     <div class="py-12 clients-list">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="grid grid-cols-4 gap-4">
-          <div v-for="c in clients">
-            <img :src="c.profile_photo_url" alt="" width="150">
+          <div v-for="c in clients" :key="c.id">
+            <img
+                :src="c.profile_photo_url"
+                alt="c.profile_photo_url"
+                width="150"
+            >
             <div>
               <div>Credits: {{ c.credits }}</div>
               <div>
@@ -45,5 +49,6 @@ const removeCredit = (client_id) => {
         </div>
       </div>
     </div>
+
   </AppLayout>
 </template>
