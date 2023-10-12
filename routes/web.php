@@ -4,6 +4,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Models\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,4 +34,14 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    Route::get('/clients', function () {
+      return Inertia::render('Clients', [
+          'clients' => User::all()
+      ]);
+    })->name('clients');
+
+  Route::get('/schedule', function () {
+    return Inertia::render('Schedule');
+  })->name('schedule');
 });

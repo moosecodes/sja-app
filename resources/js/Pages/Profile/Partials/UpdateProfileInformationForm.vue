@@ -15,8 +15,15 @@ const props = defineProps({
 
 const form = useForm({
     _method: 'PUT',
-    name: props.user.name,
+    firstName: props.user.firstName,
+    lastName: props.user.lastName,
     email: props.user.email,
+    dob: props.user.dob,
+    address1: props.user.address1,
+    address2: props.user.address2,
+    city: props.user.city,
+    state: props.user.state,
+    zip: props.user.zip,
     photo: null,
 });
 
@@ -100,7 +107,7 @@ const clearPhotoFileInput = () => {
 
                 <!-- Current Profile Photo -->
                 <div v-show="! photoPreview" class="mt-2">
-                    <img :src="user.profile_photo_url" :alt="user.name" class="rounded-full h-20 w-20 object-cover">
+                    <img :src="user.profile_photo_url" :alt="user.firstName" class="rounded-full h-20 w-20 object-cover">
                 </div>
 
                 <!-- New Profile Photo Preview -->
@@ -129,16 +136,124 @@ const clearPhotoFileInput = () => {
 
             <!-- Name -->
             <div class="col-span-6 sm:col-span-4">
-                <InputLabel for="name" value="Name" />
+                <InputLabel for="firstName" value="First Name" />
                 <TextInput
-                    id="name"
-                    v-model="form.name"
+                    id="firstName"
+                    v-model="form.firstName"
                     type="text"
                     class="mt-1 block w-full"
                     required
-                    autocomplete="name"
+                    autocomplete="firstName"
                 />
-                <InputError :message="form.errors.name" class="mt-2" />
+                <InputError :message="form.errors.firstName" class="mt-2" />
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+              <InputLabel for="lastName" value="Last Name" />
+              <TextInput
+                  id="lastName"
+                  v-model="form.lastName"
+                  type="text"
+                  class="mt-1 block w-full"
+                  required
+                  autocomplete="lastName"
+              />
+              <InputError :message="form.errors.lastName" class="mt-2" />
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+              <InputLabel for="dob" value="Date of Birth" />
+              <TextInput
+                  id="dob"
+                  v-model="form.dob"
+                  type="text"
+                  class="mt-1 block w-full"
+                  required
+                  autocomplete="dob"
+              />
+              <InputError :message="form.errors.dob" class="mt-2" />
+            </div>
+
+          <div class="col-span-6 sm:col-span-4">
+            <InputLabel for="phone" value="Phone" />
+            <TextInput
+                id="phone"
+                v-model="form.phone"
+                type="text"
+                class="mt-1 block w-full"
+                required
+                autocomplete="phone"
+            />
+            <InputError :message="form.errors.phone" class="mt-2" />
+          </div>
+
+            <div class="col-span-6 sm:col-span-4">
+              <InputLabel for="address1" value="Address 1" />
+              <TextInput
+                  id="address1"
+                  v-model="form.address1"
+                  type="text"
+                  class="mt-1 block w-full"
+                  required
+                  autocomplete="address1"
+              />
+              <InputError :message="form.errors.address1" class="mt-2" />
+            </div>
+
+
+            <div class="col-span-6 sm:col-span-4">
+              <InputLabel for="address2" value="Address 2" />
+              <TextInput
+                  id="address2"
+                  v-model="form.address2"
+                  type="text"
+                  class="mt-1 block w-full"
+                  required
+                  autocomplete="address2"
+              />
+              <InputError :message="form.errors.address2" class="mt-2" />
+            </div>
+
+
+            <div class="col-span-6 sm:col-span-4">
+              <InputLabel for="city" value="City" />
+              <TextInput
+                  id="city"
+                  v-model="form.city"
+                  type="text"
+                  class="mt-1 block w-full"
+                  required
+                  autocomplete="city"
+              />
+              <InputError :message="form.errors.city" class="mt-2" />
+            </div>
+
+
+            <div class="col-span-6 sm:col-span-4">
+              <InputLabel for="state" value="State" />
+              <TextInput
+                  id="state"
+                  v-model="form.state"
+                  type="text"
+                  class="mt-1 block w-full"
+                  required
+                  autocomplete="state"
+              />
+              <InputError :message="form.errors.state" class="mt-2" />
+            </div>
+
+
+            <div class="col-span-6 sm:col-span-4">
+              <InputLabel for="zip" value="Zip" />
+              <TextInput
+                  id="zip"
+                  v-model="form.zip"
+                  type="text"
+                  class="mt-1 block w-full"
+                  required
+                  autocomplete="zip"
+              />
+              <InputError :message="form.errors.zip" class="mt-2" />
             </div>
 
             <!-- Email -->

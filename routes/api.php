@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Models\User;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +18,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::put('/credits/{client_id}/add', function(string $client_id) {
+  $user = User::find($client_id);
+  $user->credits = $user->credits + 1;
+  $user->save();
+  return $user->credits;
+});
+Route::put('/credits/{client_id}/remove', function(string $client_id) {
+  $user = User::find($client_id);
+  $user->credits = $user->credits - 1;
+  $user->save();
+  return $user->credits;
 });
