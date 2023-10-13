@@ -41,10 +41,27 @@ Route::middleware([
       ]);
     })->name('clients');
 
+    Route::get('/client/add', function () {
+      return Inertia::render('AddClientForm', [
+        //   'client' => User::first($id)
+      ]);
+    })->name('client.add');
+
+    Route::get('/client/edit/{client_id}', function (string $client_id) {
+      return Inertia::render('EditClient', [
+          'client' => User::find($client_id)
+      ]);
+    })->name('client.edit');
+
   Route::get('/schedule', function () {
     return Inertia::render('Schedule');
   })->name('schedule');
+
   Route::get('/billing', function () {
     return Inertia::render('Billing');
   })->name('billing');
+
+  Route::get('/billing/invoice/{invoice_id}', function () {
+    return Inertia::render('billing/invoice/{invoice_id}');
+  })->name('billing/invoice/{invoice_id}');
 });
